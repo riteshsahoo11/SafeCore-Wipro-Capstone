@@ -30,17 +30,17 @@ Sensor data currently used :
 </ul>
 
 Basic architecture
-<p>User Program or User Space
-     |
-     v
-/dev/safecore
-     |
+ User Program or User Space <br>
+     |<br>
+     v<br>
+/dev/safecore<br>
+     |<br>
      v
 Linux Kernel Driver
      |
      v
 Virtual Sensor Data
-Result</p>
+Result
 
 Milestone 1 successfully established the Linux device-driver foundation of SafeCore.
 
