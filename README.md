@@ -31,7 +31,7 @@ Sensor data currently used :
 
 Basic architecture
  User Program or User Space <br>
-     |<br>
+         |<br>
      v<br>
 /dev/safecore<br>
      |<br>
