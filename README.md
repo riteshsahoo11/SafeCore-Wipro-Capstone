@@ -22,12 +22,12 @@ Added scripts to load and unload the driver.
 Tested communication between the test program and the Linux driver.
 <br>
 Sensor data currently used :
-<ol>
+<ul>
 <li>Temperature</li>
 <li>Motor RPM</li>
 <li>Vibration</li>
 <li>Sensor Validity</li>
-</ol>
+</ul>
 
 Basic architecture
 User Program or User Space
