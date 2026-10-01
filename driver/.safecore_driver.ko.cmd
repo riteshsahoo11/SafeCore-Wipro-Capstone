@@ -1,0 +1,1 @@
+savedcmd_safecore_driver.ko := x86_64-linux-gnu-ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T /usr/src/linux-headers-7.1.5+kali-amd64/arch/x86/module.lds -o safecore_driver.ko safecore_driver.o safecore_driver.mod.o .module-common.o
