@@ -4,7 +4,9 @@
 🎦**Project Overview**
     
     SafeCore is an embedded Linux software-update management system designed to make system updates safer and more reliable.
-    In embedded systems, an interrupted, corrupted, or incompatible software update can leave a device in an unusable state. SafeCore aims to reduce this risk by introducing a controlled update process with       update verification, safe activation, system health monitoring, and automatic rollback.
+    In embedded systems, an interrupted, corrupted, or incompatible software update can leave a device in an unusable state.
+    SafeCore aims to reduce this risk by introducing a controlled update process with      
+    update verification, safe activation, system health monitoring, and automatic rollback.
 
     The project is being developed as an individual Wipro Capstone Project using C++ on Linux.
 
