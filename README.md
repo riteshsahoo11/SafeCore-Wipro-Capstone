@@ -1,2 +1,2 @@
 # SafeCore-Wipro-Capstone
-Secure embedded Linux platform for reliable updates, verification, and rollback
+    A secure and fault-tolerant embedded Linux platform for reliable software updates, verification, health monitoring, and automatic rollback.
