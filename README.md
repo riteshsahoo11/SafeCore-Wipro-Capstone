@@ -47,3 +47,14 @@ Result
 Milestone 1 successfully established the Linux device-driver foundation of SafeCore.
 
 The system can now create the virtual device and exchange sensor data between user space and the Linux kernel.
+
+<h1>TEST OUTPUT For Milestone 1</h1>
+
+    ─$ sudo ./tests/driver_smoke
+    Temperature : 60 C
+    Motor RPM   : 1200
+    Vibration   : 2
+    Valid       : 1
+
+    Driver test PASSED
+
