@@ -8,3 +8,4 @@ build/
 Module.symvers
 *.out
 *.log
+/bin/
