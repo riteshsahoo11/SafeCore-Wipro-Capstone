@@ -185,7 +185,7 @@ Current states
        🔻SAFE_READY
 Behaviour
 
-       <ul>
+<ul>
        <li>Normal readings keep the system in NORMAL.</li>
        <li>Warning readings move the system to WARNING.</li>
        <li>Critical readings move the system to SAFE_STATE.</li>
