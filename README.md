@@ -74,7 +74,7 @@ Development Tools:
                      Safety Engine
                            ↓
             +--------------+--------------+ 
-            ↓              ↓              ↓ ▼ ▼ ▼ 
+            ↓              ↓              ↓ 
             NORMAL      WARNING        CRITICAL
                                           ↓
                                       SAFE_STATE
@@ -84,8 +84,26 @@ Development Tools:
                                      Manual Reset
                                           ↓
                                         NORMAL
+                                          ↓
+                                     LOG UPDATED
+                                        
                                            
+<br>
+👩🏻‍💻Basic data flow:
 
+       Sensor Input
+            ↓
+       Virtual Linux Driver
+            ↓
+       /dev/safecore
+            ↓
+       C++ Safety Controller
+            ↓
+       Safety Check
+            ↓
+       System State
+            ↓
+       Log / Response
 <b>A sensor fault also sends the machine to SAFE_STATE.</b>
 
     🔻The driver provides the sensor data.
