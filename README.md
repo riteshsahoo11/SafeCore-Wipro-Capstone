@@ -128,7 +128,7 @@ Development Tools:
 <br>
 Sensor data currently used :
        
-       <ul>
+<ul>
        <li>Temperature</li>
        <li>Motor RPM</li>
        <li>Vibration</li>
