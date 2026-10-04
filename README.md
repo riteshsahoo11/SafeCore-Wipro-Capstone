@@ -126,17 +126,16 @@ The system now checks:
     Vibration
 
 Current simulation limits:
-
-    <table>
-         <thead>
+<table>
+  <thead>
     <tr>
       <th>Parameter</th>
       <th>Normal</th>
       <th>Warning</th>
       <th>Critical</th>
     </tr>
-       </thead>
-         <tbody>
+  </thead>
+  <tbody>
     <tr>
       <td>Temperature</td>
       <td>&lt; 70°C</td>
@@ -155,8 +154,8 @@ Current simulation limits:
       <td>4–7</td>
       <td>&gt; 7</td>
     </tr>
-         </tbody>
-       </table>
+  </tbody>
+</table>
 
 These values are only used for project simulation.
 
