@@ -73,7 +73,7 @@ The goal is to monitor machine conditions and later detect unsafe situations aut
  
 <h1> Milestone 1 — Linux Device Foundation </h1>
               
-              What I completed
+       <h1>What I completed</h1>
 
        In this milestone, I built the basic Linux foundation of SafeCore before adding the actual safety logic.
 
