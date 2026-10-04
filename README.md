@@ -45,23 +45,27 @@ The goal is to monitor machine conditions and later detect unsafe situations aut
 
 💮 Designing
 
-           User Space
-               |
-          C++ Application
-               |
-            ioctl()
-               |
-         /dev/safecore
-               |
-          Linux Driver
-               |
-         Sensor Data
-               |
-         Safety Engine
-               |
-      ┌────────┼────────┐
-      ▼        ▼        ▼
-    NORMAL   WARNING  CRITICAL
+       Virtual Sensors
+              ↓
+       Linux Device Driver
+             ↓
+        /dev/safecore
+             ↓
+       C++ Safety Engine
+             ↓
+       Threshold Check
+             ↓
+       NORMAL / WARNING / CRITICAL
+             ↓
+       State Manager
+             ↓
+       NORMAL / WARNING / SAFE_STATE
+                              ↓
+                         SAFE_READY
+                              ↓
+                         Manual Reset
+
+<b>A sensor fault also sends the machine to SAFE_STATE.</b>
 
     🔻The driver provides the sensor data.
     🔻The C++ Safety Engine checks the data and decides the current condition.
@@ -108,7 +112,7 @@ The system can now create the virtual device and exchange sensor data between us
 
     Driver test PASSED
 
-  
+<br><hr>
 <h1>Milestone 2 — Sensor Monitoring</h1>
 
 The C++ part of SafeCore was added in this milestone.
@@ -142,3 +146,23 @@ Example:
     Reason : Temperature is above the critical limit
 
 <h3>SafeCore can now receive simulated sensor values, evaluate them and report whether the machine condition is NORMAL, WARNING or CRITICAL.</h3>
+<br><hr>
+
+<h1>Milestone 3 -</h1> <b>Move the system into a safe state during critical conditions, handle sensor faults and support controlled recovery.</b>
+
+Current states
+
+       🔻NORMAL
+       🔻WARNING
+       🔻SAFE_STATE
+       🔻SAFE_READY
+Behaviour
+
+       <ul>
+       <li>Normal readings keep the system in NORMAL.</li>
+       <li>Warning readings move the system to WARNING.</li>
+       <li>Critical readings move the system to SAFE_STATE.</li>
+       <li>After the fault is cleared, the system moves to SAFE_READY.</li>
+       <li>A reset is required before returning to NORMAL.</li>
+       </ul>
+
