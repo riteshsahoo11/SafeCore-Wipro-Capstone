@@ -232,3 +232,58 @@ Behaviour
        <li>A reset is required before returning to NORMAL.</li>
        </ul>
 
+<h1>Milestone 4 — Final Integration</h1>
+
+       The final milestone focused on bringing all components together and verifying the complete        project.
+       The project was tested as a complete system rather than as separate components.
+
+<h1>Deployment<h1>
+
+The current project runs directly on Kali Linux.
+
+Load the driver
+       
+       ./scripts/load_driver.sh
+Check the device
+
+       ls -l /dev/safecore
+Build the C++ application
+       
+       make user
+Run the interactive controller
+
+       sudo ./bin/safecore interactive
+Run the demonstration
+
+       sudo ./bin/safecore demo
+Unload the driver
+       
+       ./scripts/unload_driver.sh
+<br><hr>
+🗽<h1>Final Status</h1>
+
+<b>SafeCore — Completed</b>
+
+The project now provides:
+
+       🔻A Linux virtual device driver
+       🔻Simulated sensor data
+       🔻User-space C++ safety processing
+       🔻Normal, warning and critical detection
+       🔻Automatic transition to SAFE_STATE
+       🔻SAFE_READY recovery state
+       🔻Manual reset before returning to normal operation
+       🔻Driver communication testing
+       🔻Safety testing
+       🔻Event logging
+       🔻Git-based development history
+🧭<h1>Future Improvements</h1>
+
+Possible future improvements include:
+
+       🌟Automatic driver loading at boot
+       🌟More sensor types
+       🌟A graphical dashboard
+       🌟Real sensor integration
+       🌟Hardware actuator control
+       🌟More detailed event monitoring
