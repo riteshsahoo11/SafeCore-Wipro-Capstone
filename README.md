@@ -23,7 +23,7 @@ The goal is to monitor machine conditions and later detect unsafe situations aut
 
        SafeCore is being developed in four milestones:
 
-      🔻 <a href = "https://github.com/riteshsahoo11/SafeCore-Wipro-Capstone/blob/main/README.md#-milestone-1--linux-device-foundation-"Milestone 1: Linux virtual device driver</a>
+      🔻 <a href = "https://github.com/riteshsahoo11/SafeCore-Wipro-Capstone/blob/main/README.md#-milestone-1--linux-device-foundation-" >Milestone 1: Linux virtual device driver</a>
       🔻 Milestone 2: Sensor monitoring and safety decisions
       🔻 Milestone 3: Fault handling and safe-state recovery
       🔻 Milestone 4: Final integration, testing and deployment
