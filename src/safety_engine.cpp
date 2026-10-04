@@ -5,67 +5,76 @@ namespace safecore {
 SafetyResult SafetyEngine::evaluate(
     const safecore_sensor_data& data) const
 {
+    // A reading from an invalid sensor must not be trusted.
+    if (data.sensor_valid != 1) {
+        return {
+            SafetyCondition::CRITICAL,
+            "Sensor data is invalid"
+        };
+    }
+
     // Critical conditions are checked first.
     if (data.temperature_c > 85) {
         return {
-            SafetyState::CRITICAL,
+            SafetyCondition::CRITICAL,
             "Temperature is above the critical limit"
         };
     }
 
     if (data.vibration > 7) {
         return {
-            SafetyState::CRITICAL,
+            SafetyCondition::CRITICAL,
             "Vibration is above the critical limit"
         };
     }
 
     if (data.motor_rpm > 1800) {
         return {
-            SafetyState::CRITICAL,
+            SafetyCondition::CRITICAL,
             "Motor speed is above the critical limit"
         };
     }
 
-    // Warning conditions are checked next.
+    // Warning conditions.
     if (data.temperature_c >= 70) {
         return {
-            SafetyState::WARNING,
+            SafetyCondition::WARNING,
             "Temperature is in the warning range"
         };
     }
 
     if (data.vibration >= 4) {
         return {
-            SafetyState::WARNING,
+            SafetyCondition::WARNING,
             "Vibration is in the warning range"
         };
     }
 
     if (data.motor_rpm >= 1500) {
         return {
-            SafetyState::WARNING,
+            SafetyCondition::WARNING,
             "Motor speed is in the warning range"
         };
     }
 
     return {
-        SafetyState::NORMAL,
+        SafetyCondition::NORMAL,
         "All readings are within normal limits"
     };
 }
 
-const char* SafetyEngine::stateToString(SafetyState state)
+const char* SafetyEngine::conditionToString(
+    SafetyCondition condition)
 {
-    switch (state) {
+    switch (condition) {
 
-        case SafetyState::NORMAL:
+        case SafetyCondition::NORMAL:
             return "NORMAL";
 
-        case SafetyState::WARNING:
+        case SafetyCondition::WARNING:
             return "WARNING";
 
-        case SafetyState::CRITICAL:
+        case SafetyCondition::CRITICAL:
             return "CRITICAL";
     }
 

@@ -7,22 +7,24 @@
 
 namespace safecore {
 
-enum class SafetyState {
+enum class SafetyCondition {
     NORMAL,
     WARNING,
     CRITICAL
 };
 
 struct SafetyResult {
-    SafetyState state;
+    SafetyCondition condition;
     std::string reason;
 };
 
 class SafetyEngine {
 public:
-    SafetyResult evaluate(const safecore_sensor_data& data) const;
+    SafetyResult evaluate(
+        const safecore_sensor_data& data) const;
 
-    static const char* stateToString(SafetyState state);
+    static const char* conditionToString(
+        SafetyCondition condition);
 };
 
 }
