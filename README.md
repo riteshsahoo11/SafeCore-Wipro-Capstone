@@ -127,10 +127,36 @@ The system now checks:
 
 Current simulation limits:
 
-    Parameter	     Normal	  Warning	Critical
-    Temperature    < 70°C	  70–85°C	 > 85°C
-    Motor RPM	     < 1500	 1500–1800	 > 1800
-    Vibration	     < 4	  4–7	        > 7
+    <table>
+         <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Normal</th>
+      <th>Warning</th>
+      <th>Critical</th>
+    </tr>
+       </thead>
+         <tbody>
+    <tr>
+      <td>Temperature</td>
+      <td>&lt; 70°C</td>
+      <td>70–85°C</td>
+      <td>&gt; 85°C</td>
+    </tr>
+    <tr>
+      <td>Motor RPM</td>
+      <td>&lt; 1500</td>
+      <td>1500–1800</td>
+      <td>&gt; 1800</td>
+    </tr>
+    <tr>
+      <td>Vibration</td>
+      <td>&lt; 4</td>
+      <td>4–7</td>
+      <td>&gt; 7</td>
+    </tr>
+         </tbody>
+       </table>
 
 These values are only used for project simulation.
 
