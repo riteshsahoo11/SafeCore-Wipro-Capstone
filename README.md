@@ -127,10 +127,10 @@ The system now checks:
 
 Current simulation limits:
 
-    Parameter	Normal	Warning	Critical
-    Temperature	< 70°C	70–85°C	> 85°C
-    Motor RPM	< 1500	1500–1800	> 1800
-    Vibration	< 4	4–7	> 7
+    Parameter	     Normal	  Warning	Critical
+    Temperature    < 70°C	  70–85°C	 > 85°C
+    Motor RPM	     < 1500	 1500–1800	 > 1800
+    Vibration	     < 4	  4–7	        > 7
 
 These values are only used for project simulation.
 
