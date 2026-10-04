@@ -77,15 +77,15 @@ The goal is to monitor machine conditions and later detect unsafe situations aut
 
        In this milestone, I built the basic Linux foundation of SafeCore before adding the actual safety logic.
 
-       Created the project structure and GitHub repository.
-       Set up the project to run on Kali Linux.
-       Created a virtual Linux device called /dev/safecore.
-       Implemented a basic Linux character device driver in C.
-       Added an interface for sending and receiving sensor data between user space and the kernel.
-       Added ioctl() commands to set and get sensor values.
-       Created a small test program to check whether the driver is working correctly.
-       Added scripts to load and unload the driver.
-       Tested communication between the test program and the Linux driver.
+       ✨Created the project structure and GitHub repository.
+       ✨Set up the project to run on Kali Linux.
+       ✨Created a virtual Linux device called /dev/safecore.
+       ✨Implemented a basic Linux character device driver in C.
+       ✨Added an interface for sending and receiving sensor data between user space and the kernel.
+       ✨Added ioctl() commands to set and get sensor values.
+       ✨Created a small test program to check whether the driver is working correctly.
+       ✨Added scripts to load and unload the driver.
+       ✨Tested communication between the test program and the Linux driver.
 <br>
 Sensor data currently used :
        
