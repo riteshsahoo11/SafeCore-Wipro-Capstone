@@ -30,40 +30,61 @@ The goal is to monitor machine conditions and later detect unsafe situations aut
 
 <br>
 ⚙️ Tech Stack
-  
-    🔻Kali Linux
-    🔻C
-    🔻C++
-    🔻Linux kernel modules
-    🔻Character device
-    🔻/dev/safecore
-    🔻ioctl()
-    🔻GCC / G++
-    🔻Make
-    🔻Git / GitHub
+ Operating System:
+       
+       Kali Linux
+Languages:
+
+       C
+       C++
+       Linux Technologies
+       Linux kernel module
+Virtual character device:
+
+       /dev
+       ioctl()
+       copy_to_user()
+       copy_from_user()
+       Mutex
+       Kernel logging
+Development Tools:
+
+       GCC
+       G++
+       Make
+       Git
+       GitHub
 <br>
 
 💮 Designing
 
-       Virtual Sensors
-              ↓
-       Linux Device Driver
-             ↓
-        /dev/safecore
-             ↓
-       C++ Safety Engine
-             ↓
-       Threshold Check
-             ↓
-       NORMAL / WARNING / CRITICAL
-             ↓
-       State Manager
-             ↓
-       NORMAL / WARNING / SAFE_STATE
-                              ↓
-                         SAFE_READY
-                              ↓
-                         Manual Reset
+                        SAFECORE 
+           +-------------+-------------+ 
+           |                           | 
+        KERNEL SPACE               USER SPACE 
+           |                           |
+       Virtual Device Driver       C++ Controller  
+           |                           |
+           +-------- /dev/safecore ----+
+                           |
+                         ioctl()
+                           ↓
+                      Sensor Data
+                           ↓
+                     Safety Engine
+                           ↓
+            +--------------+--------------+ 
+            ↓              ↓              ↓ ▼ ▼ ▼ 
+            NORMAL      WARNING        CRITICAL
+                                          ↓
+                                      SAFE_STATE
+                                          ↓
+                                      SAFE_READY
+                                          ↓
+                                     Manual Reset
+                                          ↓
+                                        NORMAL
+                                           
 
 <b>A sensor fault also sends the machine to SAFE_STATE.</b>
 
