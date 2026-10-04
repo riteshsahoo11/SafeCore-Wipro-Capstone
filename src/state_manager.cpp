@@ -12,20 +12,31 @@ void StateManager::update(const SafetyResult& result)
 {
     lastCondition_ = result.condition;
 
-    // Once the system has entered SAFE_STATE,
-    // it does not directly return to NORMAL.
+    // Once the system enters SAFE_STATE,
+    // it must not immediately return to normal.
     if (state_ == MachineState::SAFE_STATE) {
 
-        if (result.condition == SafetyCondition::CRITICAL) {
-            return;
+        if (result.condition == SafetyCondition::NORMAL) {
+            state_ = MachineState::SAFE_READY;
+        }
+        else {
+            state_ = MachineState::SAFE_STATE;
         }
 
-        state_ = MachineState::SAFE_READY;
         return;
     }
 
-    // SAFE_READY requires an explicit reset.
+    // SAFE_READY means the dangerous condition has
+    // been cleared, but manual reset is still required.
     if (state_ == MachineState::SAFE_READY) {
+
+        if (result.condition == SafetyCondition::NORMAL) {
+            state_ = MachineState::SAFE_READY;
+        }
+        else {
+            state_ = MachineState::SAFE_STATE;
+        }
+
         return;
     }
 
@@ -47,8 +58,6 @@ void StateManager::update(const SafetyResult& result)
 
 bool StateManager::reset()
 {
-    // Reset is allowed only after entering SAFE_READY
-    // and only when the latest condition is NORMAL.
     if (state_ == MachineState::SAFE_READY &&
         lastCondition_ == SafetyCondition::NORMAL) {
 

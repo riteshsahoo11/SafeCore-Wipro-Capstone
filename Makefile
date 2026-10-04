@@ -18,7 +18,12 @@ TEST_SOURCES := \
 	src/safety_engine.cpp \
 	src/state_manager.cpp
 
-all: user test
+.PHONY: all driver user test clean
+
+all: driver user test
+
+driver:
+	$(MAKE) -C driver
 
 user: $(TARGET)
 
@@ -36,6 +41,5 @@ $(TEST_TARGET): $(TEST_SOURCES)
 	$(CXX) $(CXXFLAGS) $(TEST_SOURCES) -o $(TEST_TARGET)
 
 clean:
+	$(MAKE) -C driver clean
 	rm -f $(OBJECTS) $(TARGET) $(TEST_TARGET)
-
-.PHONY: all user test clean
