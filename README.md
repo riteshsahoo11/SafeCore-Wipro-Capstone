@@ -295,7 +295,7 @@ The project now provides:
        🔻Safety testing
        🔻Event logging
        🔻Git-based development history
-🧭<h1>Future Improvements</h1>
+<h1>🧭 Future Improvements</h1>
 
 Possible future improvements include:
 
