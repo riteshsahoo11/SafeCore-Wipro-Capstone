@@ -6,6 +6,67 @@ SafeCore is a Linux-based software project that simulates an industrial safety s
 
 The goal is to monitor machine conditions and later detect unsafe situations automatically.
 <br>
+
+🔍 Requirements
+
+       🔻C and C++ only
+       🔻Linux / Kali Linux
+       🔻Linux device-driver concepts
+       🔻Software-based architecture
+       🔻No physical hardware required
+       🔻Simulated sensor values
+       🔻Git-based development
+
+<br>
+
+🔮 Planning
+
+       SafeCore is being developed in four milestones:
+
+      🔻 Milestone 1: Linux virtual device driver
+      🔻 Milestone 2: Sensor monitoring and safety decisions
+      🔻 Milestone 3: Fault handling and safe-state recovery
+      🔻 Milestone 4: Final integration, testing and deployment
+
+<br>
+⚙️ Tech Stack
+  
+    🔻Kali Linux
+    🔻C
+    🔻C++
+    🔻Linux kernel modules
+    🔻Character device
+    🔻/dev/safecore
+    🔻ioctl()
+    🔻GCC / G++
+    🔻Make
+    🔻Git / GitHub
+<br>
+
+💮 Designing
+
+           User Space
+               |
+          C++ Application
+               |
+            ioctl()
+               |
+         /dev/safecore
+               |
+          Linux Driver
+               |
+         Sensor Data
+               |
+         Safety Engine
+               |
+      ┌────────┼────────┐
+      ▼        ▼        ▼
+    NORMAL   WARNING  CRITICAL
+
+    🔻The driver provides the sensor data.
+    🔻The C++ Safety Engine checks the data and decides the current condition.
+ <br>
+ 
 <h1> Milestone 1 — Linux Device Foundation </h1>
 What I completed
 
@@ -29,17 +90,6 @@ Sensor data currently used :
 <li>Sensor Validity</li>
 </ul>
 
-Basic architecture
- User Program or User Space 
-     |
-     v
-/dev/safecore
-     |
-     v
-Linux Kernel Driver
-     |
-     v
-Virtual Sensor Data
 <br>
 
 Result
@@ -58,3 +108,37 @@ The system can now create the virtual device and exchange sensor data between us
 
     Driver test PASSED
 
+  
+<h1>Milestone 2 — Sensor Monitoring</h1>
+
+The C++ part of SafeCore was added in this milestone.
+
+The system now checks:
+
+    Temperature
+    Motor RPM
+    Vibration
+
+Current simulation limits:
+
+    Parameter	Normal	Warning	Critical
+    Temperature	< 70°C	70–85°C	> 85°C
+    Motor RPM	< 1500	1500–1800	> 1800
+    Vibration	< 4	4–7	> 7
+
+These values are only used for project simulation.
+
+The user can also enter sensor values manually:
+
+set <temperature> <rpm> <vibration>
+
+Example:
+
+    set 95 1200 2
+
+    Result:
+
+    State  : CRITICAL
+    Reason : Temperature is above the critical limit
+
+<h3>SafeCore can now receive simulated sensor values, evaluate them and report whether the machine condition is NORMAL, WARNING or CRITICAL.</h3>
