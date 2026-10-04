@@ -240,7 +240,6 @@ Behaviour
 <h1>Deployment<h1>
 
 The current project runs directly on Kali Linux.
-
 Load the driver
        
        ./scripts/load_driver.sh
@@ -260,7 +259,26 @@ Unload the driver
        
        ./scripts/unload_driver.sh
 <br><hr>
-🗽<h1>Final Status</h1>
+### Manual Input Testing
+
+The interactive mode was used to test SafeCore with different sensor values manually.
+
+Example:
+
+       ```bash
+       sudo ./bin/safecore interactive
+Test Cases:
+
+       | Input           | Expected State |
+       | --------------- | -------------- |
+       | `set 60 1200 2` | NORMAL         |
+       | `set 75 1200 2` | WARNING        |
+       | `set 95 1200 2` | CRITICAL       |
+       | `set 60 1600 2` | WARNING        |
+       | `set 60 1200 8` | CRITICAL       |
+
+<br>
+<h1>🗽Final Status</h1>
 
 <b>SafeCore — Completed</b>
 
